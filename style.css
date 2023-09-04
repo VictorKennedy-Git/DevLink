@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+:root{
+    --inter: 'inter', sans-serif, arial;
+}
+
+html{
+    font-size: 14px;
+}
+
+body{
+    background: url(./assets/bg-mobile-light.jpg) no-repeat center center;
+    font-family: var(--inter);
+    color: black;
+    
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    gap: 2rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    gap: 2rem;
+
+
+
+}
+
+figure{
+    text-align: center;
+}
+
+figure img{
+    width: 120px;
+}
+
+div#mode{
+    height: 50px;
+    width: 100px;
+    border: 1px solid red;
+}
+
+section#links{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+}
+
+section#links a{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 1rem;
+    width: 90%;
+
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    font-size: 1.2rem;
+
+    background-color: rgba(0, 0, 0, 0.05);
+    color: black;
+
+    transition: 0.1s ease-in-out;
+
+
+}
+section#links a:hover{
+    border-color: black;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+@media (min-width: 350px) {
+    body{
+        background: url(./assets/bg-desktop-light.jpg) no-repeat center;
+        background-size: cover;
+    }
+
+    main{
+        max-width: 600px;
+    }
+    
+}
