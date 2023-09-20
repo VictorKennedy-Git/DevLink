@@ -7,16 +7,35 @@
 
 :root {
     --inter: 'inter', sans-serif, arial;
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --icon: url(./assets/sun.svg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
 }
 
 html {
     font-size: 14px;
+
+}
+
+.black{
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --icon: url(./assets/moon-stars.svg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    
 }
 
 body {
-    background: url(./assets/bg-mobile-light.jpg) no-repeat center center;
+    background: var(--bg-url) no-repeat center center;
     font-family: var(--inter);
-    color: black;
+    color: var(--text-color);
 
     display: flex;
     flex-direction: column;
@@ -29,6 +48,7 @@ body {
 
 a {
     text-decoration: none;
+    color: var(--text-color);
 }
 
 main {
@@ -48,11 +68,6 @@ figure img {
     width: 120px;
 }
 
-div#mode {
-    height: 50px;
-    width: 100px;
-}
-
 section#links {
     display: flex;
     flex-direction: column;
@@ -61,6 +76,7 @@ section#links {
     gap: 1rem;
 }
 
+
 section#links a {
     display: flex;
     flex-direction: column;
@@ -68,88 +84,62 @@ section#links a {
     padding: 1rem;
     width: 90%;
 
-    border: 2px solid rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--stroke-color);
     border-radius: 8px;
     font-size: 1.2rem;
 
-    background-color: rgba(0, 0, 0, 0.05);
-    color: black;
-
-    transition: 0.1s ease-in-out;
-
-
+    background-color: var(--surface-color);
+    color: var(--text-color);
 }
 
+section#links a:hover{
+    background-color: var(--surface-color-hover);
+    transition: 0.5s;
+}
+
+#media svg path{
+    fill: var(--text-color);
+}
 /* CHHECKBOX */
-
-div#mode {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#mode{
+    position: relative;
 }
 
-input.actived {
-    -webkit-appearance: none;
-    background-color: rgba(0, 0, 0, 0.05);
+
+#mode button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 0px;
+    background:  white var(--icon) no-repeat center;
+    position:absolute;
+    z-index: 1;
+    top: -4px;
+    left: 0px;
+}
+
+#mode span {
+    display: block;
     width: 64px;
     height: 24px;
-    border-radius: 99px;
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    display: flex;
-
-    justify-content: end;
-    align-items: center;
+    background-color: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 9999px;
+    z-index: 0;
 }
 
-input.actived:checked::after {
-    content: url(./assets/sun.svg);
-    background-color: #fff;
-    display: flex;
-    position: relative;
-    left: 3px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    padding-top: 2.5px;
-    width: 32px;
-    height: 30px;    
+footer a:hover{
+    text-decoration: underline;
 }
 
-.disable{
-    -webkit-appearance: none ;
-    background-color:rgba(0, 0, 0, 0.5);
-    width: 64px;
-    height: 24px;
-    border-radius: 99px;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    display: flex;
-
-    justify-content: start;
-    align-items: center;
-}
-
-.disable:checked::before{
-    content: url(./assets/moon-stars.svg);
-    background-color: #fff;
-    display: flex;
-    position: relative;
-    left: -3px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    padding-top: 2.5px;
-    width: 32px;
-    height: 30px;    
-}
-
-section#links a:hover {
-    border-color: black;
-    background-color: rgba(0, 0, 0, 0.02);
+.black #mode button{
+    left: initial;
+    right: 0px;
 }
 
 @media (min-width: 350px) {
     body {
-        background: url(./assets/bg-desktop-light.jpg) no-repeat center;
+        background: var(--bg-url) no-repeat center;
         background-size: cover;
     }
 
