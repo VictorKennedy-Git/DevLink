@@ -8,7 +8,8 @@
 :root {
     --inter: 'inter', sans-serif, arial;
     --text-color: black;
-    --bg-url: url(./assets/bg-mobile-light.jpg);
+    
+    --bg-url: url(./assets/bg-desktop-light.jpg);
     --icon: url(./assets/sun.svg);
     --stroke-color: rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.05);
@@ -23,7 +24,8 @@ html {
 
 .black{
     --text-color: white;
-    --bg-url: url(./assets/bg-mobile.jpg);
+    
+    --bg-url: url(./assets/bg-desktop.jpg);
     --icon: url(./assets/moon-stars.svg);
     --stroke-color: rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.05);
@@ -116,8 +118,13 @@ section#links a:hover{
     z-index: 1;
     top: -4px;
     left: 0px;
-}
 
+    animation: slid-back 0.4s forwards;
+}
+#mode button:hover{
+    outline: 8px solid var(--highlight-color);
+    transition: 0.2s ease-in-out;
+}
 #mode span {
     display: block;
     width: 64px;
@@ -132,12 +139,24 @@ footer a:hover{
     text-decoration: underline;
 }
 
+#media a svg path:hover {
+    outline: 10px solid var(--highlight-color);
+    border-radius: 100%;
+
+}
 .black #mode button{
     left: initial;
     right: 0px;
+    animation: slid-in 0.4s forwards;
 }
 
 @media (min-width: 350px) {
+    :root{
+        --bg-url: url(./assets/bg-mobile-light.jpg);
+    }
+    .black{
+        --bg-url: url(./assets/bg-mobile.jpg);
+    }
     body {
         background: var(--bg-url) no-repeat center;
         background-size: cover;
@@ -147,4 +166,22 @@ footer a:hover{
         max-width: 600px;
     }
 
+}
+
+@keyframes slid-in {
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slid-back{
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
 }
